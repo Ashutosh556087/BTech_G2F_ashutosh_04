@@ -1,20 +1,34 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    // Use float or double to store the sum for floating-point accuracy
-    float sum = 0.0; 
+    int size, i, largest;
 
-    printf("Enter the value of N (the number of terms): ");
-    scanf("%d", &n);
+    // Get the size of the array from the user
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
 
-    // Loop from 1 to N to calculate each term and add to the sum
-    for (i = 1; i <= n; i++) {
-        // Type casting to float is crucial to avoid integer division
-        sum += (float)1 / i; 
+    int array[size]; // Declaring array
+
+    // Input array elements
+    printf("Enter %d elements of the array:\n", size);
+    for (i = 0; i < size; i++) {
+        scanf("%d", &array[i]);
     }
 
-    printf("Sum of the series is: %f\n", sum);
+    // Assume the first element is the largest
+    largest = array[0];
+
+    // Traverse the array from the second element
+    for (i = 1; i < size; i++) {
+        // Update 'largest' if the current element is greater
+        if (array[i] > largest) {
+            largest = array[i];
+        }
+    }
+
+    // Print the largest element
+    printf("The largest element present in the given array is: %d\n", largest);
 
     return 0;
 }
+
